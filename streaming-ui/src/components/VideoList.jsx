@@ -8,7 +8,7 @@ const VideoList = () => {
   const [videos, setVideos] = useState([]);
   const getVideos = () => {
     axios
-      .get(`${API_URL}/api/videos/`)
+      .get(`${API_URL}api/videos/`)
       .then((response) => {
         console.log(response);
         setVideos(response.data);

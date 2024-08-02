@@ -14,7 +14,7 @@ const VideoPlayer = ({ match, location }) => {
 
   const [video, setVideo] = useState({});
   const { id } = match.params;
-  const hlsBaseUrl = `${API_URL}/videoplayback/${id}/`;
+  const hlsBaseUrl = `${API_URL}videoplayback/${id}/`;
   const [availableQualities, setAvailableQualities] = useState(["480"]);
   const [selectedQuality, setSelectedQuality] = useState("480");
 
@@ -24,7 +24,7 @@ const VideoPlayer = ({ match, location }) => {
 
   const getVideo = (id) => {
     axios
-      .get(`${API_URL}/api/videos/${id}`)
+      .get(`${API_URL}api/videos/${id}`)
       .then((response) => {
         console.log(response);
         setVideo(response.data);

@@ -8,7 +8,6 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
-import com.google.common.primitives.Shorts;
 import com.google.gson.Gson;
 import com.varun.streaming.domain.Video;
 import com.varun.streaming.service.ProcessingService;
@@ -32,7 +31,7 @@ public class ProcessingVideoListener {
 	@RabbitListener(queues = "videos")
 	public void processVideo(@Payload String message, Message rabbitMessage) {
 		try {
-			// Process the received message
+			log.info("message: {}", message);
 			Video video = gson.fromJson(message, Video.class);
 			processingService.processVideoToHLS(video);
 		} catch (Exception e) {
@@ -46,7 +45,6 @@ public class ProcessingVideoListener {
 	public void processShort(@Payload String message, Message rabbitMessage) {
 		try {
 			// Process the received message
-			Shorts shorts = gson.fromJson(message, Shorts.class);
 			// processingService.processVideoToHLS(video);
 		} catch (Exception e) {
 			// Log the exception

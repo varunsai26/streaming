@@ -9,7 +9,7 @@
 
 	<parent>
 		<groupId>com.varun</groupId>
-		<artifactId>streaming</artifactId>
+		<artifactId>streaming-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 

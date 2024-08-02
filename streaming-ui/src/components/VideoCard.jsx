@@ -45,7 +45,7 @@ const VideoCard = ({ video, history }) => {
     <Card onClick={handleClick} className="mb-3" style={{ cursor: "pointer" }}>
       <Card.Body className="d-flex flex-column flex-md-row">
         <Image
-          src={`${API_URL}/thumbnail/${video.thumbnail}`}
+          src={`${API_URL}thumbnail/${video.thumbnail}`}
           thumbnail
           className="me-3"
         />

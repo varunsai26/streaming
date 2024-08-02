@@ -13,11 +13,13 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import com.varun.streaming.dao.VideoDao;
 import com.varun.streaming.domain.Quality;
 import com.varun.streaming.domain.Video;
 
+@Repository
 public class VideoDaoImpl implements VideoDao {
 
 	@Autowired
@@ -26,14 +28,15 @@ public class VideoDaoImpl implements VideoDao {
 
 	@Override
 	public Video insertVideo(Video video) {
-		String sql = "INSERT INTO videos (id, user_id, name, description, qualities, thumbnail) "
-				+ "VALUES (:id, :userId, :name, :description, :qualities,:thumbnail)";
+		String sql = "INSERT INTO videos (id, user_id, name, description, qualities, thumbnail,duration) "
+				+ "VALUES (:id, :userId, :name, :description, :qualities,:thumbnail,:duration)";
 
 		KeyHolder keyHolder = new GeneratedKeyHolder(); // KeyHolder to retrieve generated keys
 
 		MapSqlParameterSource params = new MapSqlParameterSource().addValue("id", video.getId())
 				.addValue("userId", video.getUserId()).addValue("name", video.getName())
 				.addValue("description", video.getDescription())
+				.addValue("duration", video.getDuration())
 				.addValue("qualities",
 						video.getQualities().stream().map(Quality::getType).collect(Collectors.joining(",")))
 				.addValue("thumbnail", video.getThumbnail());

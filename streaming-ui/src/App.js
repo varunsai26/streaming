@@ -1,22 +1,12 @@
-import { Route, Router, Switch } from 'react-router';
+import React from 'react';
 import './App.css';
-import Home from './components/Home';
-import VideoUpload from './components/VideoUpload';
-import { createBrowserHistory } from 'history';
-import VideoPlayer from './components/VideoPlayer';
-import ShortsList from './components/ShortslIst';
+import Routes from './routes';
 
 function App() {
-  const history = createBrowserHistory();
   return (
-    <Router history={history}>
-      <Switch>
-        <Route exact path={"/videos/:id"} component={VideoPlayer} />
-        <Route exact path={"/upload"} component={VideoUpload} />
-        <Route exact path={"/shorts"} component={ShortsList} />
-        <Route exact path={"/"} component={Home} />
-      </Switch>
-    </Router>
+    <React.Fragment>
+      <Routes />
+    </React.Fragment>
   );
 }
 

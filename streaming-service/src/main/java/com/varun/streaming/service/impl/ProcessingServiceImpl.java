@@ -62,7 +62,7 @@ public class ProcessingServiceImpl implements ProcessingService {
 				uploadDirectoryToMinIO(outputDir, video.getId() + "/" + quality.getType());
 			}
 		} catch (Exception e) {
-			log.error("Error processing video: {}", e.getMessage());
+			log.error("Error processing video: {}", e.getMessage(),e);
 		} finally {
 			// Cleanup: delete temporary directory and files
 			if (mainDirFile != null) {

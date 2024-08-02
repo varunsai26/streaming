@@ -86,7 +86,7 @@ const VideoUpload = () => {
     formData.append('resolution', resolution);
 
     try {
-      await axios.post(`${API_URL}/api/upload`, formData, {
+      await axios.post(`${API_URL}api/videos/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

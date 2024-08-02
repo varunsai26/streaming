@@ -27,7 +27,7 @@ public class VideoServiceImpl implements VideoService {
 	@Value("${minio.bucket.videos}")
 	private String videosBucket;
 
-	@Value("${minio.bucket.thumbnail}")
+	@Value("${minio.bucket.thumbnails}")
 	private String thumbnailsBucket;
 
 	@Autowired
@@ -51,9 +51,11 @@ public class VideoServiceImpl implements VideoService {
 	@Transactional(value = "videosTransactionManager", rollbackFor = Exception.class)
 	public void uploadVideo(MultipartFile file, MultipartFile thumbnail, Double duration, Integer resolution)
 			throws Exception {
+		String fileName = file.getOriginalFilename().replace(".mp4", "");
 		Video video = new Video();
-		video.setName(file.getOriginalFilename());
-		video.setDescription(file.getOriginalFilename());
+		video.setName(fileName);
+		video.setUserId(1234l);
+		video.setDescription(fileName);
 		video.setDuration(duration);
 		video.setThumbnail(generateUniqueThumbnailPath(video.getName(), video.getUserId()));
 		video.setQualities(Quality.getQualitiesForResolution(resolution));
