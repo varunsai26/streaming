@@ -1,0 +1,46 @@
+{
+  "name": "streaming",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "dev": "npm i --no-audit --legacy-peer-deps && npm run start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "copy-assets": "cp -R build/* ../streaming-service/src/main/resources/static/",
+    "build:app": "rm -rf build/ && rm -rf ../streaming-service/src/main/resources/static/* && rm -rf node_modules/ package-lock.json && npm i --no-audit --legacy-peer-deps && npm run build && npm run copy-assets"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
+    "history": "^5.3.0",
+    "react": "^16.13.1",
+    "react-bootstrap": "^2.10.4",
+    "react-dom": "^16.13.1",
+    "react-hls-player": "^3.0.7",
+    "react-player": "^2.16.0",
+    "react-router": "^4.3.1",
+    "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
+    "ajv": "^7.2.4"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

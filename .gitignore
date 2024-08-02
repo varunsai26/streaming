@@ -1,0 +1,40 @@
+# Java
+*.class
+*.war
+*.ear
+*.jar
+
+# Build directories
+**/target/
+**/build/
+**/out/
+**/logs/
+
+/streaming-service/src/main/resources/static/
+
+# Package managers
+/node_modules/
+/bower_components/
+/.venv/
+
+# IDEs and editors
+/.idea/
+/*.iml
+/.project
+/.settings/
+/.vscode/
+/*.swp
+
+# Logs
+*.log
+streaming-ui/node/
+streaming-ui/node_modules/
+streaming-ui/package-lock.json/
+
+
+streaming-service/.classpath
+streaming-service/.project
+streaming-service/.settings/org.eclipse.core.resources.prefs
+streaming-service/.settings/org.eclipse.jdt.apt.core.prefs
+streaming-service/.settings/org.eclipse.jdt.core.prefs
+streaming-service/.settings/org.eclipse.m2e.core.prefs
